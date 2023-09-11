@@ -12,8 +12,8 @@ const router = express.Router();    //create a express router which has all the 
 
 const JWT_SECRET = process.env.JWT_SECRET;   //jwt secret string 
 
-// ROUTE 1: Create a User using: POST "/auth/createuser". No login required
-router.post('/createUser', [
+// ROUTE 1: Create a User using: POST "/auth/user/createuser". No login required
+router.post('/createuser', [
     body('name', 'Enter a valid name').isLength({ min: 5 }),
     body('email', 'Enter a valid email').isEmail(),
     body('password', 'Password must be atleast 5 characters').isLength({ min: 5 }),
@@ -63,10 +63,10 @@ router.post('/createUser', [
     }
 })
 
-// ROUTE 2: Authenticate a User using: POST "/auth/userlogin". No login required
-router.post('/userlogin', [
+// ROUTE 2: Authenticate a User using: POST "/auth/user/login". No login required
+router.post('/login', [
     body('email', 'Enter a valid email').isEmail(),
-    body('password', 'Password cannot be blank and should be atleast 5 characters').exists().isLength({ min: 5 }),
+    body('password', 'Password should be atleast 5 characters').isLength({ min: 5 }),
 ], async (req, res) => {
 
     let success = false;
