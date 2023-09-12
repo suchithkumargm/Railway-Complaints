@@ -15,7 +15,7 @@ const fetchUser = (req, res, next) => {
     }
     try {
         //verfiy the jwt auth token
-        const data = jwt.verify(token, JWT_SECRET);
+        const data =jwt.verify(token, JWT_SECRET);
         if (data.role !== 'user') {
             return res.status(401).send({ error: "Access denied: This route is for users only" });
         }

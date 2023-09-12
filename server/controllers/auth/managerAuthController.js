@@ -41,7 +41,8 @@ try {
     const data = {
         manager: {
             id: manager.id
-        }
+        },
+        role:'manager'
     }
 
     // Create an authentication token (JWT) for the new manager
