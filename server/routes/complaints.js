@@ -8,7 +8,7 @@ import trainComplaintRoute from './complaints/trainComplaint.js'; //the path to 
 const complaintsRouter = Router();
 
 // Use the trainComplaint route for train-related complaint routes
-complaintsRouter.use('/trainComplaint', trainComplaintRoute);
+complaintsRouter.use('/trainComplaints', trainComplaintRoute);
 
 // // Use the stationComplaint route for station-related complaint routes
 // authRouter.use('/stationComplaint', stationComplaintRoute);

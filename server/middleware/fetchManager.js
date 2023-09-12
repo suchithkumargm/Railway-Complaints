@@ -6,7 +6,7 @@ dotenv.config();
 //fetch JWT secret string from .env file
 const JWT_SECRET = process.env.JWT_SECRET;
 
-const fetchmanager = (req, res, next) => {
+const fetchManager = (req, res, next) => {
     // Get manager from the jwt token and add id to req object
     const token = req.header('authToken');     //get the auth token from header of a req
     //if authToken is not present then produce error
@@ -16,6 +16,9 @@ const fetchmanager = (req, res, next) => {
     try {
         //verfiy the jwt auth token
         const data = jwt.verify(token, JWT_SECRET);
+        if (data.role !== 'manager') {
+            return res.status(401).send({ error: "Access denied: This route is for managers only" });
+        }
         req.manager = data.manager;
         next()  // Continue to the next middleware or function if authToken is valid
     } catch (error) {
@@ -23,4 +26,4 @@ const fetchmanager = (req, res, next) => {
     }
 }
 
-export default fetchmanager;
+export default fetchManager;

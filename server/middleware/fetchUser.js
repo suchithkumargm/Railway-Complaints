@@ -6,7 +6,7 @@ dotenv.config();
 //fetch JWT secret string from .env file
 const JWT_SECRET = process.env.JWT_SECRET;
 
-const fetchuser = (req, res, next) => {
+const fetchUser = (req, res, next) => {
     // Get the user from the jwt token and add id to req object
     const token = req.header('authToken');     //get the auth token from header of a req
     //if authToken is not present then produce error
@@ -16,6 +16,9 @@ const fetchuser = (req, res, next) => {
     try {
         //verfiy the jwt auth token
         const data = jwt.verify(token, JWT_SECRET);
+        if (data.role !== 'user') {
+            return res.status(401).send({ error: "Access denied: This route is for users only" });
+        }
         req.user = data.user;
         next()  // Continue to the next middleware or function
     } catch (error) {
@@ -23,4 +26,4 @@ const fetchuser = (req, res, next) => {
     }
 }
 
-export default fetchuser;
+export default fetchUser;

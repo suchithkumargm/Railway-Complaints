@@ -92,7 +92,8 @@ export const loginManager = async (req, res) => {
         const data = {
             manager: {
                 id: manager.id
-            }
+            },
+            role: 'manager', // Set the role to 'manager' for user tokens
         }
 
         // Create an authentication token (JWT) for the authenticated manager
