@@ -6,11 +6,11 @@ import TrainComplaint from '../models/TrainComplaint.js';
 
 const router = express.Router();
 
-// // ROUTE 1: Get All the Notes using: GET "/api/notes/fetchallnotes". Login required
-// router.get('/fetchallnotes', fetchuser, async (req, res) => {
-//     const notes = await Note.find({ user: req.user.id });
-//     res.json(notes)
-// })
+// ROUTE 1: Get All the Notes using: GET "/api/notes/fetchallnotes". Login required
+router.get('/fetchallnotes', fetchuser, async (req, res) => {
+    const notes = await Note.find({ user: req.user.id });
+    res.json(notes)
+})
 
 // ROUTE 2: lodge a new complaint using: POST "/complaints/add/traincomplaint". user Login required
 router.post('/add/traincomplaint', fetchuser, [
