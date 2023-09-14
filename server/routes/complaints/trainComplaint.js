@@ -30,10 +30,8 @@ router.post(
     body('subtype', 'Subtype cannot be empty').isLength({ min: 1 }),
     body('description', 'Description must be at least 5 characters').isLength({ min: 5 }),
   ],
-  ()=>{
-    console.log("train");
     lodgeNewTrainComplaint
-  });
+);
 
 // ROUTE 4: Delete an existing traincomplaint using: DELETE "/complaints/traincomplaints/deletecomplaint". user Login required
 router.delete('/deletecomplaint/:id', fetchUser, deleteTrainComplaint);

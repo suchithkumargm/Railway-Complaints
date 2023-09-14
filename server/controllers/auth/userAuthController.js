@@ -46,7 +46,6 @@ export const createUser = async (req, res) => {
             },
             role: 'user', // Set the role to 'user' for user tokens
         };
-        console.log(data);
         const authToken = jwt.sign(data, JWT_SECRET);
 
         success = true;
