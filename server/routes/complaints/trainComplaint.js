@@ -13,7 +13,8 @@ import {
 const router = express.Router();
 
 // ROUTE 1: Get All the trainComplaints using: GET "/complaints/traincomplaints/getallcomplaints". manager Login required
-router.get('/getallcomplaints', fetchManager, getAllTrainComplaints);
+router.get('/getallcomplaints', fetchManager,
+  getAllTrainComplaints);
 
 // ROUTE 2: Get user trainComplaints using: GET "/complaints/traincomplaints/getusercomplaints". user Login required
 router.get('/getusercomplaints', fetchUser, getUserTrainComplaints);
@@ -29,8 +30,10 @@ router.post(
     body('subtype', 'Subtype cannot be empty').isLength({ min: 1 }),
     body('description', 'Description must be at least 5 characters').isLength({ min: 5 }),
   ],
-  lodgeNewTrainComplaint
-);
+  ()=>{
+    console.log("train");
+    lodgeNewTrainComplaint
+  });
 
 // ROUTE 4: Delete an existing traincomplaint using: DELETE "/complaints/traincomplaints/deletecomplaint". user Login required
 router.delete('/deletecomplaint/:id', fetchUser, deleteTrainComplaint);

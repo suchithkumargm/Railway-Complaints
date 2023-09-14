@@ -1,0 +1,221 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Railway Complaints",
+    "dateExported": "2023-09-13T10:34:41.284Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "1562280c-0811-40c9-979b-2c0331f43e65",
+            "name": "auth",
+            "containerId": "",
+            "created": "2023-09-11T15:07:32.615Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "1b84ef27-5ac1-4f79-aa8b-8f3f5b57e7a7",
+            "name": "user",
+            "containerId": "1562280c-0811-40c9-979b-2c0331f43e65",
+            "created": "2023-09-11T16:51:24.417Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "edb60e8e-ced7-41ba-a486-47af03dd4a53",
+            "name": "manager",
+            "containerId": "1562280c-0811-40c9-979b-2c0331f43e65",
+            "created": "2023-09-11T17:06:39.533Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "5caf052a-02c2-45f2-aeef-e6878a48f04e",
+            "name": "complaints",
+            "containerId": "",
+            "created": "2023-09-12T11:27:35.113Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "1b5fecf0-a909-436a-8f54-9f8a47988cb8",
+            "name": "train complaints",
+            "containerId": "5caf052a-02c2-45f2-aeef-e6878a48f04e",
+            "created": "2023-09-12T11:27:43.016Z",
+            "sortNum": 50000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "a7471c86-3fe1-4647-bbf1-921baaa65dac",
+            "colId": "0a48a8ee-6a2e-4b28-bb09-268ccb94353a",
+            "containerId": "1b84ef27-5ac1-4f79-aa8b-8f3f5b57e7a7",
+            "name": "createuser",
+            "url": "http://localhost:5000/auth/user/createuser",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-09-11T15:34:31.612Z",
+            "modified": "2023-09-12T16:38:32.925Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"suchith\",\n  \"email\":\"suchith@gmail.com\",\n  \"password\":\"12345\",\n  \"mobile\":\"9108733565\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "28783eca-d0e7-4b94-8f67-c54f6f2d1534",
+            "colId": "0a48a8ee-6a2e-4b28-bb09-268ccb94353a",
+            "containerId": "1b84ef27-5ac1-4f79-aa8b-8f3f5b57e7a7",
+            "name": "login",
+            "url": "http://localhost:5000/auth/user/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-09-11T15:43:11.164Z",
+            "modified": "2023-09-12T16:39:21.973Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"suchith@gmail.com\",\n  \"password\":\"12345\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "9d11966c-b67c-410f-84bd-f9da8f4fb53e",
+            "colId": "0a48a8ee-6a2e-4b28-bb09-268ccb94353a",
+            "containerId": "1b84ef27-5ac1-4f79-aa8b-8f3f5b57e7a7",
+            "name": "fetch user",
+            "url": "http://localhost:5000/auth/user/getuser",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-09-11T16:31:48.450Z",
+            "modified": "2023-09-11T16:53:10.748Z",
+            "headers": [
+                {
+                    "name": "authToken",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRmZjM0MzllMTVkOTAzMGUxNmVmYzM0In0sImlhdCI6MTY5NDQ0NzIwMX0.bpETUKPrLFnSIsQK3Kc60wSMwzRYZd-cX76q08593pA"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "30e5ab8a-3087-4d24-8edf-352f53679090",
+            "colId": "0a48a8ee-6a2e-4b28-bb09-268ccb94353a",
+            "containerId": "edb60e8e-ced7-41ba-a486-47af03dd4a53",
+            "name": "register",
+            "url": "http://localhost:5000/auth/manager/register",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-09-11T17:06:49.813Z",
+            "modified": "2023-09-11T17:07:41.311Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"employeeId\":\"abcde\",\n  \"password\":\"12345\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "928761d1-9dda-4471-b857-319ced3d0fa9",
+            "colId": "0a48a8ee-6a2e-4b28-bb09-268ccb94353a",
+            "containerId": "edb60e8e-ced7-41ba-a486-47af03dd4a53",
+            "name": "login",
+            "url": "http://localhost:5000/auth/manager/login",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-09-11T17:15:20.636Z",
+            "modified": "2023-09-11T17:16:13.484Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"employeeId\":\"abcde\",\n  \"password\":\"12345\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "14324dfe-1e70-4b21-beaf-d422a504d2c2",
+            "colId": "0a48a8ee-6a2e-4b28-bb09-268ccb94353a",
+            "containerId": "1b5fecf0-a909-436a-8f54-9f8a47988cb8",
+            "name": "get all train complaints",
+            "url": "http://localhost:5000/complaints/traincomplaints/getallcomplaints",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-09-12T11:27:58.373Z",
+            "modified": "2023-09-12T16:41:36.080Z",
+            "headers": [
+                {
+                    "name": "authToken",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYW5hZ2VyIjp7ImlkIjoiNjUwMDk0YTEzYjgxMjZiNTA0MjNiYTZhIn0sInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNjk0NTM2ODY5fQ.93YIt2TguvDY42cJwCkQ_6tkIVmj51oFRDfejGrM030"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "9f2c23aa-aa18-4655-b17e-3c9b77fb64ea",
+            "colId": "0a48a8ee-6a2e-4b28-bb09-268ccb94353a",
+            "containerId": "1b5fecf0-a909-436a-8f54-9f8a47988cb8",
+            "name": "new complaint",
+            "url": "http://localhost:5000/complaints/traincomplaints/newcomplaint",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2023-09-12T11:49:25.079Z",
+            "modified": "2023-09-12T16:39:53.753Z",
+            "headers": [
+                {
+                    "name": "authToken",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjUwMDk0MmEzYjgxMjZiNTA0MjNiYTYwIn0sInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjk0NTM2NzYxfQ.ztRCgLk3EuyB-es0dl8drXt1fl2ylhSyq7Qfd3lZmf0"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"trainNumber\": \"56212\",\n  \"pnrNumber\": \"8375837\",\n  \"type\": \"arrival\",\n  \"subtype\": \"early arrival\",\n  \"description\": \"the train arrived late to the station\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "32ee52af-a706-4678-9701-d4a091483f0d",
+            "colId": "0a48a8ee-6a2e-4b28-bb09-268ccb94353a",
+            "containerId": "1b5fecf0-a909-436a-8f54-9f8a47988cb8",
+            "name": "get user complaints",
+            "url": "http://localhost:5000/complaints/traincomplaints/getusercomplaints",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2023-09-12T12:11:16.330Z",
+            "modified": "2023-09-12T16:40:56.309Z",
+            "headers": [
+                {
+                    "name": "authToken",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjUwMDk0MmEzYjgxMjZiNTA0MjNiYTYwIn0sInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjk0NTM2NzYxfQ.ztRCgLk3EuyB-es0dl8drXt1fl2ylhSyq7Qfd3lZmf0"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a5195dde-cd62-438f-8562-92b84ff99ef9",
+            "colId": "0a48a8ee-6a2e-4b28-bb09-268ccb94353a",
+            "containerId": "1b5fecf0-a909-436a-8f54-9f8a47988cb8",
+            "name": "delete complaint",
+            "url": "http://localhost:5000/complaints/traincomplaints/deletecomplaint/6500960dcfa8ca76673beb77",
+            "method": "DELETE",
+            "sortNum": 110000,
+            "created": "2023-09-12T16:20:33.641Z",
+            "modified": "2023-09-12T16:48:35.267Z",
+            "headers": [
+                {
+                    "name": "authToken",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjUwMDk0MmEzYjgxMjZiNTA0MjNiYTYwIn0sInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjk0NTM2NzYxfQ.ztRCgLk3EuyB-es0dl8drXt1fl2ylhSyq7Qfd3lZmf0"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
