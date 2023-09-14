@@ -4,19 +4,19 @@ import { useNavigate } from 'react-router-dom'
 
 import './Login.css'; // Import the CSS file
 
-const UserLogin = (props) => {
+const ManagerLogin = (props) => {
 
 	const navigate = useNavigate();
-	const [credentials, setCredentials] = useState({ email: "", password: "" })
+	const [credentials, setCredentials] = useState({ employeeId: "", password: "" })
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const response = await fetch('http://localhost:5000/auth/user/login', {
+		const response = await fetch('http://localhost:5000/auth/manager/login', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({ email: credentials.email, password: credentials.password })
+			body: JSON.stringify({ employeeId: credentials.employeeId, password: credentials.password })
 		});
 		const json = await response.json()
 		if (json.success) {
@@ -35,12 +35,12 @@ const UserLogin = (props) => {
 
 	return (
 		<>
-			<h1>User Login</h1>
+			<h1>Manager Login</h1>
 			<Container className="container">
 				<Form className="w-50 login-form" onSubmit={handleSubmit}>
 					<Form.Group controlId="formBasicEmail" className="input-field">
-						<Form.Label>Email address</Form.Label>
-						<Form.Control type="email" name="email" placeholder="Enter email" value={credentials.email} onChange={onChange} />
+						<Form.Label>Employee ID</Form.Label>
+						<Form.Control type="text" name="employeeId" placeholder="Enter employee Id" value={credentials.employeeId} onChange={onChange} />
 					</Form.Group>
 
 					<Form.Group controlId="formBasicPassword" className="input-field">
@@ -56,4 +56,4 @@ const UserLogin = (props) => {
 	);
 }
 
-export default UserLogin;
+export default ManagerLogin;

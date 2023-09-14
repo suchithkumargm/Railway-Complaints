@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Im
 import Home from './components/Home/Home.js';
 import UserLogin from './components/Login/UserLogin.js';
 import CreateUser from './components/Register/CreateUser.js';
+import ManagerLogin from './components/Login/ManagerLogin.js';
+import RegisterManager from './components/Register/RegisterManager.js';
 import Alert from './components/Alert.js';
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/auth/user/login" element={<UserLogin showAlert={showAlert}/> } />
           <Route path="/auth/user/createUser" element={<CreateUser showAlert={showAlert}/>} />
+          <Route path="/auth/manager/login" element={<ManagerLogin showAlert={showAlert}/> } />
+          <Route path="/auth/manager/register" element={<RegisterManager showAlert={showAlert}/>} />
           <Route path="/complaints" element={<Home showAlert={showAlert}/>} />
         </Routes>
       </div>
