@@ -35,7 +35,7 @@ const UserLogin = (props) => {
 
 	return (
 		<>
-			<h1>User Login</h1>
+			<h5>User Login</h5>
 			<Container className="container">
 				<Form className="w-50 login-form" onSubmit={handleSubmit}>
 					<Form.Group controlId="formBasicEmail" className="input-field">

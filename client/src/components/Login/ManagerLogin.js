@@ -35,7 +35,7 @@ const ManagerLogin = (props) => {
 
 	return (
 		<>
-			<h1>Manager Login</h1>
+			<h5>Manager Login</h5>
 			<Container className="container">
 				<Form className="w-50 login-form" onSubmit={handleSubmit}>
 					<Form.Group controlId="formBasicEmail" className="input-field">
