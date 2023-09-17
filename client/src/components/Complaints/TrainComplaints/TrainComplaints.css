@@ -1,0 +1,17 @@
+/* TrainComplaints.css */
+.nav-tabs {
+    background-color: #007bff; /* Set the background color for the tabs */
+  }
+  
+  .nav-tabs .nav-link {
+    color: #fff; /* Set the text color for the tabs */
+    font-weight: bold; /* Set the font weight for the tabs */
+  }
+  
+  .nav-tabs .nav-link.active {
+    background-color: #0056b3; /* Darker background color for the active tab */
+    color: #fff; /* Text color for the active tab */
+    border: 2px solid #0056b3; /* Border for the active tab */
+    border-radius: 5px; /* Rounded corners for the active tab */
+  }
+  
