@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 
 const NewComplaint = (props) => {
@@ -52,8 +51,6 @@ const NewComplaint = (props) => {
 		setSelectedSubtype(type);
 	  };
 	  
-
-	const navigate = useNavigate();
 	const [newComplaint, setNewComplaint] = useState({ trainNumber: "", pnrNumber: "", type: "", subType: "", description: "" })
 
 	const handleSubmit = async (e) => {
