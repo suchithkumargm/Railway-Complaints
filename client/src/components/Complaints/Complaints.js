@@ -7,7 +7,8 @@ import ParcelComplaints from './ParcelComplaints/ParcelComplaints';
 import MiscellaneousComplaints from './MiscellaneousComplaints/MiscellaneousComplaints';
 import './Complaints.css';
 
-function Complaints() {
+const Complaints=(props) =>{
+  const { showAlert } = props;
   const [activeComponent, setActiveComponent] = useState('train'); // Default to 'train'
 
   const switchToTab = (tab) => {
@@ -51,10 +52,10 @@ function Complaints() {
         </Nav.Item>
       </Nav>
       {/* Render the active component based on activeComponent state */}
-      {activeComponent === 'train' && <TrainComplaints />}
-      {activeComponent === 'station' && <StationComplaints />}
-      {activeComponent === 'parcel' && <ParcelComplaints />}
-      {activeComponent === 'miscellaneous' && <MiscellaneousComplaints />}
+      {activeComponent === 'train' && <TrainComplaints showAlert={showAlert}/>}
+      {activeComponent === 'station' && <StationComplaints showAlert={showAlert}/>}
+      {activeComponent === 'parcel' && <ParcelComplaints showAlert={showAlert}/>}
+      {activeComponent === 'miscellaneous' && <MiscellaneousComplaints showAlert={showAlert}/>}
     </div>
   );
 }
