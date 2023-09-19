@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Nav } from 'react-bootstrap';
 
 import NewComplaint from './NewComplaint.js';
-import DeleteComplaint from './DeleteComplaints.js';
 import GetComplaints from './GetComplaints.js';
 
 function TrainComplaints(props) {
@@ -17,10 +16,6 @@ function TrainComplaints(props) {
         setActiveComponent('getComplaints');
     };
 
-    const switchToDeleteComplaints = () => {
-        setActiveComponent('deleteComplaint');
-    };
-
     return (
         <div>
             <Nav className="justify-content-center" variant="underline" defaultActiveKey="/home">
@@ -30,11 +25,8 @@ function TrainComplaints(props) {
                 <Nav.Item>
                     <Nav.Link onClick={switchToGetComplaints}>Get Complaints</Nav.Link>
                 </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link onClick={switchToDeleteComplaints}>Delete Complaints</Nav.Link>
-                </Nav.Item>
             </Nav>
-            {activeComponent === 'newComplaint' ? <NewComplaint showAlert={showAlert} /> : activeComponent === 'getComplaints' ? <GetComplaints showAlert={showAlert} /> : <DeleteComplaint showAlert={showAlert} />}
+            {activeComponent === 'newComplaint' ? <NewComplaint showAlert={showAlert} /> :  <GetComplaints showAlert={showAlert} /> }
         </div>
     );
 }
