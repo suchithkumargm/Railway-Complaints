@@ -14,7 +14,8 @@ export default function AppRoutes(props) {
 			<Route path="/" element={<Home showAlert={showAlert} />} />
 			<Route path="/login" element={<Login showAlert={showAlert} />} />
 			<Route path="/register" element={<Register showAlert={showAlert} />} />
-			<Route path="/complaints" element={<Complaints showAlert={showAlert} />} />
+			<Route path="/user/complaints" element={<Complaints showAlert={showAlert} />} />
+			<Route path="/manager/complaints" element={<Complaints showAlert={showAlert} />} />
 		</Routes>
 	);
 }

@@ -21,6 +21,7 @@ const ManagerLogin = (props) => {
 		const json = await response.json()
 		if (json.success) {
 			localStorage.setItem('token', json.authToken);
+			localStorage.setItem('role', json.role);
 			navigate("/");
 			props.showAlert("Logged in Successfully!", "success")
 		}

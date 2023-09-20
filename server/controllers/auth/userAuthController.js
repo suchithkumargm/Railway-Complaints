@@ -49,7 +49,7 @@ export const createUser = async (req, res) => {
         const authToken = jwt.sign(data, JWT_SECRET);
 
         success = true;
-        res.json({ success, authToken });
+        res.json({ success, authToken,role:'user' });
     } catch (error) {
         console.error(error);
         res.status(500).send("Internal Server Error");
@@ -93,7 +93,7 @@ export const loginUser = async (req, res) => {
         };
         const authToken = jwt.sign(data, JWT_SECRET);
         success = true;
-        res.json({ success, authToken });
+        res.json({ success, authToken ,role:'user' });
     } catch (error) {
         console.error(error);
         res.status(500).send("Internal Server Error");

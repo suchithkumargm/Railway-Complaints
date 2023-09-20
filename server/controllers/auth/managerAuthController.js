@@ -50,7 +50,7 @@ try {
 
     // Successful registration of manager. Send authToken as a response
     success = true;
-    res.json({ success, authToken });
+    res.json({ success, authToken,role:'manager'  });
 } catch (error) {
     // Print errors if any
     console.error(error);
@@ -100,7 +100,7 @@ export const loginManager = async (req, res) => {
         // Create an authentication token (JWT) for the authenticated manager
         const authToken = jwt.sign(data, JWT_SECRET)
         success = true
-        res.json({ success, authToken })
+        res.json({ success, authToken,role:'manager' })
 
     } catch (error) {
         console.error(error);
