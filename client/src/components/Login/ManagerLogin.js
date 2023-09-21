@@ -22,7 +22,7 @@ const ManagerLogin = (props) => {
 		if (json.success) {
 			localStorage.setItem('token', json.authToken);
 			localStorage.setItem('role', json.role);
-			navigate("/");
+			navigate("/manager/complaints");
 			props.showAlert("Logged in Successfully!", "success")
 		}
 		else {

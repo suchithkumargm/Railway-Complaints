@@ -12,7 +12,8 @@ function Navbar() {
 	const handleLogout = () => {
 		// Remove the 'token' from localStorage when logging out
 		localStorage.removeItem('token');
-		navigate('/')
+		navigate("/");
+		window.location.href = "/";
 	};
 
 	return (

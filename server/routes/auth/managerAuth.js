@@ -1,7 +1,8 @@
 import express from 'express';
 import { body } from 'express-validator';
 
-import { registerManager, loginManager } from '../../controllers/auth/managerAuthController.js';
+import { registerManager, loginManager,getUser } from '../../controllers/auth/managerAuthController.js';
+import fetchManager from '../../middleware/fetchManager.js';
 
 const router = express.Router();
 
@@ -24,5 +25,7 @@ router.post(
     ],
     loginManager
 );
+
+router.post('/getuser/:userid', fetchManager, getUser);
 
 export default router;

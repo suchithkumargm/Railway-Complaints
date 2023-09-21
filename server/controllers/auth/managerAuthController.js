@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 
 import Manager from '../../models/Manager.js';
+import User from '../../models/User.js';
 
 dotenv.config();    // Load environment variables
 const JWT_SECRET = process.env.JWT_SECRET;   // JWT secret string
@@ -102,6 +103,22 @@ export const loginManager = async (req, res) => {
         success = true
         res.json({ success, authToken,role:'manager' })
 
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Internal Server Error");
+    }
+} 
+
+// Route to get user details (requires authentication)
+export const getUser = async (req, res) => {
+    try {
+        // Get the user ID from the authenticated request
+        const userId = req.params.userid;
+
+        // Retrieve user details from the database (excluding password)
+        const user = await User.findById(userId).select("-password");
+
+        res.json(user);
     } catch (error) {
         console.error(error);
         res.status(500).send("Internal Server Error");

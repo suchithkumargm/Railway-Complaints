@@ -6,6 +6,7 @@ import Home from './components/Home/Home.js';
 import Login from './components/Login/Login.js';
 import Register from './components/Register/Register.js';
 import Complaints from './components/Complaints/Complaints.js';
+import ManagerComplaints from './components/ManagerComplaints/ManagerComplaints.js';
 
 export default function AppRoutes(props) {
 	const { showAlert } = props;
@@ -15,7 +16,7 @@ export default function AppRoutes(props) {
 			<Route path="/login" element={<Login showAlert={showAlert} />} />
 			<Route path="/register" element={<Register showAlert={showAlert} />} />
 			<Route path="/user/complaints" element={<Complaints showAlert={showAlert} />} />
-			<Route path="/manager/complaints" element={<Complaints showAlert={showAlert} />} />
+			<Route path="/manager/complaints" element={<ManagerComplaints showAlert={showAlert} />} />
 		</Routes>
 	);
 }
