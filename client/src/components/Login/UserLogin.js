@@ -41,12 +41,12 @@ const UserLogin = (props) => {
 				<Form className="w-50 login-form" onSubmit={handleSubmit}>
 					<Form.Group controlId="formBasicEmail" className="input-field">
 						<Form.Label>Email address</Form.Label>
-						<Form.Control type="email" name="email" placeholder="Enter email" value={credentials.email} onChange={onChange} />
+						<Form.Control type="email" name="email" placeholder="Enter email" value={credentials.email} onChange={onChange} required/>
 					</Form.Group>
 
 					<Form.Group controlId="formBasicPassword" className="input-field">
 						<Form.Label>Password</Form.Label>
-						<Form.Control type="password" name="password" placeholder="Password" value={credentials.password} onChange={onChange} />
+						<Form.Control type="password" name="password" placeholder="Password" value={credentials.password} onChange={onChange} required/>
 					</Form.Group>
 					<Button variant="primary" type="submit" className="submit-button">
 						Submit
