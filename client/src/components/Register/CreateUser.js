@@ -41,8 +41,8 @@ const CreateUser = (props) => {
 
 	return (
 		<>
-			<h1>Create User</h1>
-			<Container className="container">
+			<h5 className='mt-5'>Create User</h5>
+			<div className="d-flex justify-content-center mt-5">
 				<Form className="w-50 login-form" onSubmit={handleSubmit}>
 					<Form.Group controlId="formGridName" className="input-field">
 						<Form.Label>Name</Form.Label>
@@ -73,7 +73,7 @@ const CreateUser = (props) => {
 						Submit
 					</Button>
 				</Form>
-			</Container>
+			</div>
 		</>
 	);
 }

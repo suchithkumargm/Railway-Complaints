@@ -36,8 +36,8 @@ const ManagerLogin = (props) => {
 
 	return (
 		<>
-			<h5>Manager Login</h5>
-			<Container className="container">
+			<h5 className='mt-5'>Manager Login</h5>
+			<div className="d-flex justify-content-center mt-5">
 				<Form className="w-50 login-form" onSubmit={handleSubmit}>
 					<Form.Group controlId="formBasicEmail" className="input-field">
 						<Form.Label>Employee ID</Form.Label>
@@ -52,7 +52,7 @@ const ManagerLogin = (props) => {
 						Submit
 					</Button>
 				</Form>
-			</Container>
+			</div>
 		</>
 	);
 }

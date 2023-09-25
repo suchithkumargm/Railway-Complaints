@@ -36,8 +36,8 @@ const RegisterManager = (props) => {
 
 	return (
 		<>
-			<h1>Register Manager</h1>
-			<Container className="container">
+			<h5 className='mt-5'>Register Manager</h5>
+			<div className="d-flex justify-content-center mt-5">
 				<Form className="w-50 login-form" onSubmit={handleSubmit}>
 					<Form.Group controlId="formBasicEmail" className="input-field">
 						<Form.Label>Employee ID</Form.Label>
@@ -52,7 +52,7 @@ const RegisterManager = (props) => {
 						Submit
 					</Button>
 				</Form>
-			</Container>
+			</div>
 		</>
 	);
 }
