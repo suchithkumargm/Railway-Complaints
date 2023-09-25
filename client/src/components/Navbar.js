@@ -31,9 +31,15 @@ function Navbar() {
 						</Link>
 					</Nav.Item>
 					<Nav.Item>
-						<Link to="/complaints" className="nav-link" style={navLinkStyle}>
-							Complaints
-						</Link>
+						{(localStorage.getItem('role')==='user') ? (
+							<Link to="/user/complaints" className="nav-link" style={navLinkStyle}>
+								Complaints
+							</Link>
+						) : (
+							<Link to="/manager/complaints" className="nav-link" style={navLinkStyle}>
+								Complaints
+							</Link>
+						)}
 					</Nav.Item>
 				</>
 			) : (
