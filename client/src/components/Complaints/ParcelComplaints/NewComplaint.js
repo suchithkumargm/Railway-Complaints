@@ -9,35 +9,13 @@ const NewComplaint = (props) => {
 
 	const complaintTypes = [
 		'Select type of complaint',
-		'Medical Assistance',
-		'Security',
-		'Divangjan Facilities',
-		'Facilities with women with special needs',
-		'Electrical equipment',
-		'Coach - cleanliness',
-		'Punctuality',
-		'Water availability',
-		'Coach - maintenance',
-		'Catering and vending services',
-		'Staff behavior',
-		'Corruption / Bribery',
-		'Bed roll',
+		'Luggage / Parcels',
+		'Goods'
 	];
 
 	const subtypeOptions = {
-		'1': ['Medical Assistance'],
-		'2': ['Eve-teasing/Misbehaviour/Rape', 'Theft of Passengers Belongings/Snatching', 'Unauthorized person in Ladies/Disabled Coach/SLR/Reserve Coach', 'Harassment/Extortion by Security Personnel/Railway personnel', 'Nuisance by Hawkers/Beggar/Eunuch/Passenger', 'Luggage Left Behind/Unclaimed/Suspected Articles', 'Passenger Missing/Not responding call', 'Smoking/Drinking Alcohol/Narcotics', 'Dacoity/Robbery/Murder/Riots', 'Quarrelling/Hooliganism/Run over/Passenger Fallen down'],
-		'3': ['Divyangjan coach unavailability', 'Divyangjan toilet /washbasin', 'Braille signage in coach'],
-		'4': ['Baby food'],
-		'5': ['AC', 'Fans', 'Lights', 'Charging points'],
-		'6': ['Toilets', 'wash basins', 'cockroach/rodents', 'coach interior', 'coach interior'],
-		'7': ['NTES app', 'Late running'],
-		'8': ['Packaged drinking water/Rail neer', 'Toilet', 'Wash Basins'],
-		'9': ['Window/Seat Broken', 'Window/Door locking problem', 'Tap leaking/Tap not working', 'Broken/Missing Toilet Fittings', 'Jerks/Abnormal Sound'],
-		'10': ['Overcharging', 'Service Quality & Hygiene', 'Food Quality & Quantity', 'E-Catering', 'Food & Water Not Available'],
-		'11': ['Staff behavior'],
-		'12': ['Corruption / Bribery'],
-		'13': ['Dirty/torn', 'Over charging', 'Non availability', 'E-bed roll'],
+		'1': ['Parcel Facilitation'],
+		'2': ['Freight Facilitation'],
 	};
 
 	const handleTypeChange = (e) => {
@@ -66,7 +44,7 @@ const NewComplaint = (props) => {
 
 		try {
 			const response = await fetch(
-				'http://localhost:5000/complaints/parcelcomplaints/newcomplaint',
+				'https://railwaycomplaints.onrender.com/complaints/parcelcomplaints/newcomplaint',
 				{
 					method: 'POST',
 					headers: {

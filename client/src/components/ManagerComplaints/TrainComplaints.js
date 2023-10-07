@@ -8,7 +8,7 @@ const TrainComplaints = (props) => {
 		// Fetch complaints when the component mounts
 		async function fetchComplaints() {
 			try {
-				const response = await fetch('http://localhost:5000/complaints/traincomplaints/getallcomplaints', {
+				const response = await fetch('https://railwaycomplaints.onrender.com/complaints/traincomplaints/getallcomplaints', {
 					method: 'GET',
 					headers: {
 						'Content-Type': 'application/json',

@@ -1,5 +1,5 @@
 import { validationResult } from 'express-validator';
-import TrainComplaint from '../../models/complaints/trainComplaint.js';
+import TrainComplaint from '../../models/complaints/TrainComplaint.js';
 
 export const getAllTrainComplaints = async (req, res) => {
   try {

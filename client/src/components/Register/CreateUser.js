@@ -13,7 +13,7 @@ const CreateUser = (props) => {
 		e.preventDefault();
 		const { name, email, password, cpassword, mobile } = credentials;
 		if (password === cpassword) {
-			const response = await fetch('http://localhost:5000/auth/user/createuser', {
+			const response = await fetch('https://railwaycomplaints.onrender.com/auth/user/createuser', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'

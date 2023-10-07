@@ -67,7 +67,7 @@ const NewComplaint = (props) => {
 
 		try {
 			const response = await fetch(
-				'http://localhost:5000/complaints/stationcomplaints/newcomplaint',
+				'https://railwaycomplaints.onrender.com/complaints/stationcomplaints/newcomplaint',
 				{
 					method: 'POST',
 					headers: {

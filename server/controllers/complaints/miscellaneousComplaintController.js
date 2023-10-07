@@ -1,5 +1,5 @@
 import { validationResult } from 'express-validator';
-import MiscellaneousComplaint from '../../models/complaints/miscellaneousComplaint.js';
+import MiscellaneousComplaint from '../../models/complaints/MiscellaneousComplaint.js';
 
 export const getAllMiscellaneousComplaints = async (req, res) => {
     try {
