@@ -11,7 +11,7 @@ const RegisterManager = (props) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const response = await fetch('https://railwaycomplaints.onrender.com/auth/manager/register', {
+		const response = await fetch('http://localhost:5000/auth/manager/register', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

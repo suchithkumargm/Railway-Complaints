@@ -17,8 +17,7 @@ const UserSchema = new Schema({
     },
     mobile:{
         type: String,
-        required: true ,
-        unique:true
+        required: true 
     }
   });
 const User = mongoose.model('user', UserSchema);

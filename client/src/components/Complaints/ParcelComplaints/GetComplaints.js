@@ -9,7 +9,7 @@ const GetComplaints = (props) => {
 		// Fetch complaints when the component mounts
 		async function fetchComplaints() {
 			try {
-				const response = await fetch('https://railwaycomplaints.onrender.com/complaints/parcelcomplaints/getusercomplaints', {
+				const response = await fetch('http://localhost:5000/complaints/parcelcomplaints/getusercomplaints', {
 					method: 'GET',
 					headers: {
 						'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ const GetComplaints = (props) => {
 	const handleDelete = async (complaintId) => {
 		//Implement the delete logic here
 		try {
-			await fetch(`https://railwaycomplaints.onrender.com/complaints/parcelcomplaints/deletecomplaint/${complaintId}`, {
+			await fetch(`http://localhost:5000/complaints/parcelcomplaints/deletecomplaint/${complaintId}`, {
 				method: 'DELETE',
 				headers: {
 					'Content-Type': 'application/json',
