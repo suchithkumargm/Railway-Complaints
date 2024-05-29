@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Accordion } from 'react-bootstrap';
+import { Accordion, Button } from 'react-bootstrap';
 
 const MiscellaneousComplaints = (props) => {
 	const [complaints, setComplaints] = useState([]);
+	const [reRender, setReRender] = useState(false);
 
 	useEffect(() => {
 		// Fetch complaints when the component mounts
@@ -28,7 +29,24 @@ const MiscellaneousComplaints = (props) => {
 		}
 
 		fetchComplaints();
-	}, []); // Empty dependency array to run this effect once when the component mounts
+	}, [reRender]); // Empty dependency array to run this effect once when the component mounts
+
+	const handleUpdate = async (complaintId) => {
+		try {
+			await fetch(`http://localhost:5000/complaints/miscellaneouscomplaints/updatestatus/${complaintId}`, {
+				method: 'PATCH',
+				headers: {
+					'Content-Type': 'application/json',
+					'authToken': localStorage.getItem('token')
+				}
+			});
+			props.showAlert('Complaint status resolved', 'success');
+			setReRender(!reRender)
+		} catch (error) {
+			props.showAlert('Error updating status', 'danger');
+			console.error('Error updating status:', error);
+		}
+	}
 
 	return (
 		<>
@@ -36,13 +54,27 @@ const MiscellaneousComplaints = (props) => {
 			<Accordion>
 				{complaints.map((complaint) => (
 					<Accordion.Item key={complaint._id} eventKey={complaint._id}>
-						<Accordion.Header>{complaint.description.substring(0,10)} ....<strong>View full complaint</strong></Accordion.Header>
+						<Accordion.Header>
+							<div class="d-flex w-100 justify-content-between px-4 font-weight-bold">
+								<span>View full complaint</span>
+								<span>Status: <span className={complaint.status === 'pending' ? 'text-danger text-uppercase' : 'text-success text-uppercase'}>{complaint.status}</span></span>
+							</div>
+						</Accordion.Header>
 						<Accordion.Body>
 							<strong>Description:</strong> {complaint.description}
 						</Accordion.Body>
 						<Accordion.Body>
 							<strong>Timestamp:</strong> {complaint.timestamp}
 						</Accordion.Body>
+						{
+							complaint.status === 'pending' ?
+								<Accordion.Body>
+									<Button variant="success" onClick={() => handleUpdate(complaint._id)}>
+										Mark as Resolved
+									</Button>
+								</Accordion.Body>
+								: ''
+						}
 					</Accordion.Item>
 				))}
 			</Accordion>
