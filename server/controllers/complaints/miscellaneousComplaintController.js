@@ -68,3 +68,22 @@ export const deleteMiscellaneousComplaint = async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 };
+
+export const updateStatusOfMiscellaneousComplaint = async (req, res) => {
+    try {
+        // Find the complaint to be updated
+        let miscellaneousComplaint = await MiscellaneousComplaint.findById(req.params.id);
+        if (!miscellaneousComplaint) {
+            return res.status(404).send('Not Found');
+        }
+
+        // Update the status to 'completed'
+        miscellaneousComplaint.status = 'resolved';
+        await miscellaneousComplaint.save();
+
+        res.json({ Success: 'Miscellaneous complaint status has been updated to completed', miscellaneousComplaint: miscellaneousComplaint });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+};

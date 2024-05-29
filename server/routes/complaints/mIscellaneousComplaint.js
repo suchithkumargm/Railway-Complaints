@@ -1,5 +1,5 @@
 import express from 'express';
-import { body} from 'express-validator';
+import { body } from 'express-validator';
 
 import fetchUser from '../../middleware/fetchUser.js';
 import fetchManager from '../../middleware/fetchManager.js';
@@ -8,6 +8,7 @@ import {
   getUserMiscellaneousComplaints,
   lodgeNewMiscellaneousComplaint,
   deleteMiscellaneousComplaint,
+  updateStatusOfMiscellaneousComplaint
 } from '../../controllers/complaints/miscellaneousComplaintController.js';
 
 const router = express.Router();
@@ -30,5 +31,8 @@ router.post(
 
 // ROUTE 4: Delete an existing miscellaneouscomplaint using: DELETE "/complaints/miscellaneouscomplaints/deletecomplaint". user Login required
 router.delete('/deletecomplaint/:id', fetchUser, deleteMiscellaneousComplaint);
+
+// ROUTE 5: Update status of miscellaneous complaint using : PATCH "/complaints/miscellaneouscomplaints/updatestatus/:id". manager Login required
+router.patch('/updatestatus/:id', fetchManager, updateStatusOfMiscellaneousComplaint);
 
 export default router;

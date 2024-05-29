@@ -72,3 +72,22 @@ export const deleteStationComplaint = async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 };
+
+export const updateStatusOfStationComplaint = async (req, res) => {
+  try {
+    // Find the complaint to be updated
+    let stationComplaint = await StationComplaint.findById(req.params.id);
+    if (!stationComplaint) {
+      return res.status(404).send('Not Found');
+    }
+
+    // Update the status to 'completed'
+    stationComplaint.status = 'resolved';
+    await stationComplaint.save();
+
+    res.json({ Success: 'Station complaint status has been updated to completed', stationComplaint: stationComplaint });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+};

@@ -37,7 +37,7 @@ router.post(
 // ROUTE 4: Delete an existing traincomplaint using: DELETE "/complaints/traincomplaints/deletecomplaint/:id". user Login required
 router.delete('/deletecomplaint/:id', fetchUser, deleteTrainComplaint);
 
-// ROUTE 5: Update status of train complaint using : PATCH "/complaints/traincomplaints/updatestatus/:id". user Login required
+// ROUTE 5: Update status of train complaint using : PATCH "/complaints/traincomplaints/updatestatus/:id". manager Login required
 router.patch('/updatestatus/:id', fetchManager, updateStatusOfTrainComplaint);
 
 export default router;
