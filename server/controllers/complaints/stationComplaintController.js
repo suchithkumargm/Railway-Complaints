@@ -25,7 +25,7 @@ export const lodgeNewStationComplaint = async (req, res) => {
   try {
     // Get all details from the body of the request
     const { stationName, platformNumber, type, subtype, timestamp, description } = req.body;
-    
+
     // If there are errors, return a bad request and the errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -41,6 +41,7 @@ export const lodgeNewStationComplaint = async (req, res) => {
       subtype,
       timestamp,
       description,
+      status: 'pending'
     });
 
     const savedComplaint = await stationComplaint.save();

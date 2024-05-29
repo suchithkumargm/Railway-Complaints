@@ -37,6 +37,7 @@ export const lodgeNewMiscellaneousComplaint = async (req, res) => {
             user: req.user.id,
             timestamp,
             description,
+            status: 'pending'
         });
 
         const savedComplaint = await miscellaneousComplaint.save();

@@ -40,6 +40,7 @@ export const lodgeNewParcelComplaint = async (req, res) => {
             subtype,
             timestamp,
             description,
+            status: 'pending'
         });
 
         const savedComplaint = await parcelComplaint.save();
