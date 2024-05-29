@@ -1,0 +1,19 @@
+/* Complaints.css */
+.nav-tabs {
+    background-color: #007bff;
+    border: 2px solid #007bff;
+  }
+  
+  .nav-tabs .nav-link {
+    color: #fff;
+    border-color: #007bff;
+    font-size: 16px; /* Set the font size for non-active tabs */
+  }
+  
+  .nav-tabs .nav-link.active {
+    background-color: #ffffff; /* Darker background color for active tab */
+    color: #000000;
+    border-color: #0056b3; /* Darker border color for active tab */
+    font-size: 18px; /* Larger font size for active tab */
+  }
+  
