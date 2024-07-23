@@ -8,6 +8,7 @@ import {
   getUserStationComplaints,
   lodgeNewStationComplaint,
   deleteStationComplaint,
+  updateStatusOfStationComplaint
 } from '../../controllers/complaints/stationComplaintController.js';
 
 const router = express.Router();
@@ -34,5 +35,8 @@ router.post(
 
 // ROUTE 4: Delete an existing stationcomplaint using: DELETE "/complaints/stationcomplaints/deletecomplaint". user Login required
 router.delete('/deletecomplaint/:id', fetchUser, deleteStationComplaint);
+
+// ROUTE 5: Update status of station complaint using : PATCH "/complaints/stationcomplaints/updatestatus/:id". manager Login required
+router.patch('/updatestatus/:id', fetchManager, updateStatusOfStationComplaint);
 
 export default router;

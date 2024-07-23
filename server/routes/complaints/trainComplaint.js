@@ -8,6 +8,7 @@ import {
   getUserTrainComplaints,
   lodgeNewTrainComplaint,
   deleteTrainComplaint,
+  updateStatusOfTrainComplaint
 } from '../../controllers/complaints/trainComplaintController.js';
 
 const router = express.Router();
@@ -30,10 +31,13 @@ router.post(
     body('subtype', 'Subtype cannot be empty').isLength({ min: 1 }),
     body('description', 'Description must be at least 5 characters').isLength({ min: 5 }),
   ],
-    lodgeNewTrainComplaint
+  lodgeNewTrainComplaint
 );
 
-// ROUTE 4: Delete an existing traincomplaint using: DELETE "/complaints/traincomplaints/deletecomplaint". user Login required
+// ROUTE 4: Delete an existing traincomplaint using: DELETE "/complaints/traincomplaints/deletecomplaint/:id". user Login required
 router.delete('/deletecomplaint/:id', fetchUser, deleteTrainComplaint);
+
+// ROUTE 5: Update status of train complaint using : PATCH "/complaints/traincomplaints/updatestatus/:id". manager Login required
+router.patch('/updatestatus/:id', fetchManager, updateStatusOfTrainComplaint);
 
 export default router;

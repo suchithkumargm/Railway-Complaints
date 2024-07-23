@@ -1,5 +1,5 @@
 import express from 'express';
-import { body} from 'express-validator';
+import { body } from 'express-validator';
 
 import fetchUser from '../../middleware/fetchUser.js';
 import fetchManager from '../../middleware/fetchManager.js';
@@ -8,6 +8,7 @@ import {
   getUserParcelComplaints,
   lodgeNewParcelComplaint,
   deleteParcelComplaint,
+  updateStatusOfParcelComplaint
 } from '../../controllers/complaints/parcelComplaintController.js';
 
 const router = express.Router();
@@ -33,5 +34,8 @@ router.post(
 
 // ROUTE 4: Delete an existing parcelcomplaint using: DELETE "/complaints/parcelcomplaints/deletecomplaint". user Login required
 router.delete('/deletecomplaint/:id', fetchUser, deleteParcelComplaint);
+
+// ROUTE 5: Update status of parcel complaint using : PATCH "/complaints/parcelcomplaints/updatestatus/:id". manager Login required
+router.patch('/updatestatus/:id', fetchManager, updateStatusOfParcelComplaint);
 
 export default router;

@@ -25,7 +25,7 @@ export const lodgeNewStationComplaint = async (req, res) => {
   try {
     // Get all details from the body of the request
     const { stationName, platformNumber, type, subtype, timestamp, description } = req.body;
-    
+
     // If there are errors, return a bad request and the errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -41,6 +41,7 @@ export const lodgeNewStationComplaint = async (req, res) => {
       subtype,
       timestamp,
       description,
+      status: 'pending'
     });
 
     const savedComplaint = await stationComplaint.save();
@@ -66,6 +67,25 @@ export const deleteStationComplaint = async (req, res) => {
 
     stationComplaint = await StationComplaint.findByIdAndDelete(req.params.id);
     res.json({ Success: 'Stationcomplaint has been deleted', stationComplaint: stationComplaint });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+};
+
+export const updateStatusOfStationComplaint = async (req, res) => {
+  try {
+    // Find the complaint to be updated
+    let stationComplaint = await StationComplaint.findById(req.params.id);
+    if (!stationComplaint) {
+      return res.status(404).send('Not Found');
+    }
+
+    // Update the status to 'completed'
+    stationComplaint.status = 'resolved';
+    await stationComplaint.save();
+
+    res.json({ Success: 'Station complaint status has been updated to completed', stationComplaint: stationComplaint });
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');

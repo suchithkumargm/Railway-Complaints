@@ -40,6 +40,7 @@ export const lodgeNewParcelComplaint = async (req, res) => {
             subtype,
             timestamp,
             description,
+            status: 'pending'
         });
 
         const savedComplaint = await parcelComplaint.save();
@@ -65,6 +66,25 @@ export const deleteParcelComplaint = async (req, res) => {
 
         parcelComplaint = await ParcelComplaint.findByIdAndDelete(req.params.id);
         res.json({ Success: 'Parcelcomplaint has been deleted', parcelComplaint: parcelComplaint });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+export const updateStatusOfParcelComplaint = async (req, res) => {
+    try {
+        // Find the complaint to be updated
+        let parcelComplaint = await ParcelComplaint.findById(req.params.id);
+        if (!parcelComplaint) {
+            return res.status(404).send('Not Found');
+        }
+
+        // Update the status to 'completed'
+        parcelComplaint.status = 'resolved';
+        await parcelComplaint.save();
+
+        res.json({ Success: 'Parcel complaint status has been updated to completed', parcelComplaint: parcelComplaint });
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');

@@ -57,7 +57,12 @@ const GetComplaints = (props) => {
 			<Accordion>
 				{complaints.map((complaint) => (
 					<Accordion.Item key={complaint._id} eventKey={complaint._id}>
-						<Accordion.Header>Type: {complaint.type}</Accordion.Header>
+						<Accordion.Header>
+							<div class="d-flex w-100 justify-content-between px-4 font-weight-bold">
+								<span>Type: {complaint.type}</span>
+								<span>Status: <span className={complaint.status === 'pending' ? 'text-danger text-uppercase' : 'text-success text-uppercase'}>{complaint.status}</span></span>
+							</div>
+						</Accordion.Header>
 						<Accordion.Body>
 							<strong>Parcel Number:</strong> {complaint.parcelNumber}
 						</Accordion.Body>
@@ -69,6 +74,9 @@ const GetComplaints = (props) => {
 						</Accordion.Body>
 						<Accordion.Body>
 							<strong>Timestamp:</strong> {complaint.timestamp}
+						</Accordion.Body>
+						<Accordion.Body>
+							<strong>Status:</strong> {complaint.status}
 						</Accordion.Body>
 						<Accordion.Body>
 							<Button variant="danger" onClick={() => handleDelete(complaint._id)}>
