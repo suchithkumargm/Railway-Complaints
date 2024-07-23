@@ -9,7 +9,7 @@ const GetComplaints = (props) => {
 		// Fetch complaints when the component mounts
 		async function fetchComplaints() {
 			try {
-				const response = await fetch('http://localhost:5000/complaints/traincomplaints/getusercomplaints', {
+				const response = await fetch('https://railway-complaints-server.onrender.com/complaints/traincomplaints/getusercomplaints', {
 					method: 'GET',
 					headers: {
 						'Content-Type': 'application/json',
@@ -33,9 +33,9 @@ const GetComplaints = (props) => {
 
 	// Function to handle complaint deletion
 	const handleDelete = async (complaintId) => {
-    //Implement the delete logic here
+		//Implement the delete logic here
 		try {
-			await fetch(`http://localhost:5000/complaints/traincomplaints/deletecomplaint/${complaintId}`, {
+			await fetch(`https://railway-complaints-server.onrender.com/complaints/traincomplaints/deletecomplaint/${complaintId}`, {
 				method: 'DELETE',
 				headers: {
 					'Content-Type': 'application/json',
@@ -44,9 +44,9 @@ const GetComplaints = (props) => {
 			});
 			// Update state to remove the deleted complaint
 			setComplaints((prevComplaints) => prevComplaints.filter((complaint) => complaint._id !== complaintId));
-			props.showAlert('Complaint deleted successfully','success');
+			props.showAlert('Complaint deleted successfully', 'success');
 		} catch (error) {
-			props.showAlert('Error deleting Complaint','danger');
+			props.showAlert('Error deleting Complaint', 'danger');
 			console.error('Error deleting complaint:', error);
 		}
 	};

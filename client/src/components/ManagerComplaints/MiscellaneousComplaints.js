@@ -8,7 +8,7 @@ const MiscellaneousComplaints = (props) => {
 		// Fetch complaints when the component mounts
 		async function fetchComplaints() {
 			try {
-				const response = await fetch('http://localhost:5000/complaints/miscellaneouscomplaints/getallcomplaints', {
+				const response = await fetch('https://railway-complaints-server.onrender.com/complaints/miscellaneouscomplaints/getallcomplaints', {
 					method: 'GET',
 					headers: {
 						'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ const MiscellaneousComplaints = (props) => {
 			<Accordion>
 				{complaints.map((complaint) => (
 					<Accordion.Item key={complaint._id} eventKey={complaint._id}>
-						<Accordion.Header>{complaint.description.substring(0,10)} ....<strong>View full complaint</strong></Accordion.Header>
+						<Accordion.Header>{complaint.description.substring(0, 10)} ....<strong>View full complaint</strong></Accordion.Header>
 						<Accordion.Body>
 							<strong>Description:</strong> {complaint.description}
 						</Accordion.Body>

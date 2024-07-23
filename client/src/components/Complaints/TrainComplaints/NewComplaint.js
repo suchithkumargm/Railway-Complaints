@@ -49,8 +49,8 @@ const NewComplaint = (props) => {
 	const handleSubtypeChange = (e) => {
 		const type = e.target.value;
 		setSelectedSubtype(type);
-	  };
-	  
+	};
+
 	const [newComplaint, setNewComplaint] = useState({ trainNumber: "", pnrNumber: "", type: "", subType: "", description: "" })
 
 	const handleSubmit = async (e) => {
@@ -67,7 +67,7 @@ const NewComplaint = (props) => {
 
 		try {
 			const response = await fetch(
-				'http://localhost:5000/complaints/traincomplaints/newcomplaint',
+				'https://railway-complaints-server.onrender.com/complaints/traincomplaints/newcomplaint',
 				{
 					method: 'POST',
 					headers: {
